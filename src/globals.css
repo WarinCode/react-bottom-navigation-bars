@@ -1,0 +1,241 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box !important;
+}
+
+:root {
+  --shadow: #8f8c8c70;
+  --primary: #6157ff;
+  --primary-2: #6257ff11;
+  --secondary: #534ada;
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url("./assets/fonts/Roboto-Medium.ttf");
+}
+
+body {
+  font-family: Roboto, "Segoe UI", Tahoma, sans-serif;
+  background-color: aliceblue;
+}
+
+div#root {
+  position: relative;
+}
+
+main {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% 10%;
+}
+
+.navigation-bar {
+  width: 375px;
+  max-width: 400px;
+  height: 95px;
+  max-height: 120px;
+  background-color: white;
+  padding: 7px;
+  border-radius: 0 0 30px 30px;
+  box-shadow: 0 12px 12px var(--shadow);
+  margin-bottom: 50px;
+  .menu-bar {
+    width: auto;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .item {
+      position: relative;
+      height: 50px;
+      width: 75px;
+      cursor: pointer;
+      text-align: center;
+      .top-line {
+        visibility: hidden;
+        position: absolute;
+        width: 0;
+        height: 0;
+        top: -14%;
+        left: 20%;
+        background: var(--primary);
+      }
+      div {
+        .icon {
+          font-size: 24px;
+        }
+      }
+      p {
+        text-transform: capitalize;
+        font-size: 12px;
+        font-weight: normal;
+        margin-top: 3px;
+      }
+    }
+  }
+
+  .bottom-bar {
+    width: auto;
+    height: 34px;
+    padding: inherit;
+    position: relative;
+    .bottom-line {
+      position: absolute;
+      left: calc(50% - 20%);
+      bottom: 15%;
+      width: 134px;
+      height: 6px;
+      background-color: black;
+      border-radius: 20px;
+    }
+  }
+}
+
+#navigation-bar1 {
+  .menu-bar {
+    .item-active {
+      p,
+      div .icon {
+        color: var(--primary);
+      }
+    }
+  }
+}
+
+#navigation-bar2 {
+  .menu-bar .item-active {
+    .top-line {
+      visibility: visible;
+      width: 60%;
+      height: 3px;
+      border-radius: 12px;
+    }
+    div > .icon,
+    p {
+      color: var(--primary);
+    }
+  }
+}
+
+#navigation-bar3 {
+  .menu-bar {
+    .item {
+      .parent-of-icon {
+        width: 35px;
+        height: 35px;
+        margin: auto;
+        cursor: pointer;
+        .icon {
+          margin: 5px;
+        }
+      }
+      p {
+        display: none;
+      }
+    }
+    .item-active {
+      .top-line {
+        visibility: visible;
+        width: 40%;
+        height: 4px;
+        left: 29%;
+        border-radius: 0 0 50px 50px;
+      }
+      .parent-of-icon {
+        background: var(--primary-2);
+        border-radius: 50px;
+        .icon {
+          color: var(--primary);
+        }
+      }
+    }
+  }
+}
+
+#navigation-bar4 {
+  .menu-bar {
+    .item {
+      .parent-of-icon {
+        width: 35px;
+        height: 35px;
+        margin: auto;
+        cursor: pointer;
+        .icon {
+          margin: 5px;
+        }
+      }
+      p {
+        display: none;
+      }
+    }
+    .item-active {
+      p {
+        display: block;
+        color: var(--primary);
+      }
+      .parent-of-icon {
+        background: linear-gradient(
+          to bottom,
+          var(--primary),
+          var(--secondary)
+        );
+        border-radius: 50px;
+        .icon {
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+#navigation-bar5 {
+  padding: 0 0 7px 0;
+  .menu-bar {
+    .item {
+      padding: 2.5px 0 0 0;
+    }
+    .item-active {
+      background: linear-gradient(to bottom, var(--primary), var(--secondary));
+      p,
+      div .icon {
+        color: white;
+      }
+    }
+  }
+  .bottom-bar {
+    padding: 0;
+    .bottom-line {
+      bottom: -6%;
+    }
+  }
+}
+
+#navigation-bar6 {
+  .menu-bar {
+    .item {
+      height: 30px;
+      p {
+        margin: 0;
+        display: none;
+      }
+    }
+    .item-active {
+      background: var(--primary-2);
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      .parent-of-icon {
+        .icon {
+          color: var(--primary);
+        }
+      }
+      p {
+        display: block;
+        color: var(--primary);
+      }
+    }
+  }
+}
