@@ -1,7 +1,7 @@
 import { useState, useId } from "react";
 import EachItem from "./EachItem";
-
 import uuid from "react-uuid";
+import Proptypes from "prop-types";
 
 const NavigationBar = ({ data, number }) => {
   const [active, setActive] = useState(null);
@@ -14,7 +14,7 @@ const NavigationBar = ({ data, number }) => {
           <EachItem
             key={itemId + uuid()}
             active={active}
-            callback={() => setActive(item.id)}
+            callbackFn={() => setActive(item.id)}
             {...item}
           />
         ))}
@@ -25,5 +25,10 @@ const NavigationBar = ({ data, number }) => {
     </div>
   );
 };
+
+NavigationBar.propTypes = {
+  data: Proptypes.array.isRequired,
+  number: Proptypes.number.isRequired
+}
 
 export default NavigationBar;

@@ -9,6 +9,7 @@
   --primary: #6157ff;
   --primary-2: #6257ff11;
   --secondary: #534ada;
+  --bg: #efefef;
 }
 
 @font-face {
@@ -18,7 +19,7 @@
 
 body {
   font-family: Roboto, "Segoe UI", Tahoma, sans-serif;
-  background-color: aliceblue;
+  background: var(--bg);
 }
 
 div#root {
@@ -42,18 +43,29 @@ main {
   border-radius: 0 0 30px 30px;
   box-shadow: 0 12px 12px var(--shadow);
   margin-bottom: 50px;
+
   .menu-bar {
     width: auto;
     height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
+
     .item {
       position: relative;
       height: 50px;
       width: 75px;
       cursor: pointer;
       text-align: center;
+
+      :where(.icon, p) {
+        transition: color 250ms ease-in-out;
+      }
+
+      &:hover {
+        color: var(--primary);
+      }
+
       .top-line {
         visibility: hidden;
         position: absolute;
@@ -63,11 +75,11 @@ main {
         left: 20%;
         background: var(--primary);
       }
-      div {
-        .icon {
-          font-size: 24px;
-        }
+
+      .parent-of-icon > .icon {
+        font-size: 24px;
       }
+
       p {
         text-transform: capitalize;
         font-size: 12px;
@@ -82,6 +94,7 @@ main {
     height: 34px;
     padding: inherit;
     position: relative;
+
     .bottom-line {
       position: absolute;
       left: calc(50% - 20%);
@@ -113,7 +126,8 @@ main {
       height: 3px;
       border-radius: 12px;
     }
-    div > .icon,
+
+    .parent-of-icon > .icon,
     p {
       color: var(--primary);
     }
@@ -128,14 +142,17 @@ main {
         height: 35px;
         margin: auto;
         cursor: pointer;
+
         .icon {
           margin: 5px;
         }
       }
+
       p {
         display: none;
       }
     }
+
     .item-active {
       .top-line {
         visibility: visible;
@@ -144,9 +161,11 @@ main {
         left: 29%;
         border-radius: 0 0 50px 50px;
       }
+
       .parent-of-icon {
         background: var(--primary-2);
         border-radius: 50px;
+
         .icon {
           color: var(--primary);
         }
@@ -163,19 +182,23 @@ main {
         height: 35px;
         margin: auto;
         cursor: pointer;
+
         .icon {
           margin: 5px;
         }
       }
+
       p {
         display: none;
       }
     }
+
     .item-active {
       p {
         display: block;
         color: var(--primary);
       }
+
       .parent-of-icon {
         background: linear-gradient(
           to bottom,
@@ -183,6 +206,7 @@ main {
           var(--secondary)
         );
         border-radius: 50px;
+
         .icon {
           color: white;
         }
@@ -193,20 +217,25 @@ main {
 
 #navigation-bar5 {
   padding: 0 0 7px 0;
+
   .menu-bar {
     .item {
       padding: 2.5px 0 0 0;
     }
+
     .item-active {
       background: linear-gradient(to bottom, var(--primary), var(--secondary));
+
       p,
-      div .icon {
+      .parent-of-icon .icon {
         color: white;
       }
     }
   }
+
   .bottom-bar {
     padding: 0;
+
     .bottom-line {
       bottom: -6%;
     }
@@ -217,24 +246,59 @@ main {
   .menu-bar {
     .item {
       height: 30px;
+
       p {
         margin: 0;
         display: none;
       }
     }
+
     .item-active {
       background: var(--primary-2);
       display: flex;
       align-items: center;
       justify-content: space-evenly;
+
       .parent-of-icon {
         .icon {
           color: var(--primary);
         }
       }
+
       p {
         display: block;
         color: var(--primary);
+      }
+    }
+  }
+}
+
+#navigation-bar7 {
+  .menu-bar {
+    .item p {
+      display: none;
+    }
+
+    .item-active {
+      position: relative;
+      top: -60%;
+      width: 48px;
+      height: 48px;
+      background: white;
+      border-radius: 50px;
+      border: 6px var(--bg) solid;
+      color: var(--primary);
+      margin: auto;
+      padding: 5px;
+
+      .icon {
+        text-align: center;
+      }
+
+      p {
+        display: block;
+        color: var(--primary);
+        margin-top: 17px;
       }
     }
   }

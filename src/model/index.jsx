@@ -35,7 +35,7 @@ const model = {
       icon: <RxDashboard className="icon" />,
     },
   ],
-  amount: 6
+  amount: 7
 };
 
 export default model;

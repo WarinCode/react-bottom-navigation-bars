@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import NavigationBar from "./NavigationBar";
-
+import PropTypes from "prop-types";
 import uuid from "react-uuid";
 
 const NavigationBars = ({ data, amount }) => {
@@ -20,5 +20,10 @@ const NavigationBars = ({ data, amount }) => {
     </div>
   );
 };
+
+NavigationBars.propTypes = {
+  data: PropTypes.array.isRequired,
+  amount: PropTypes.number.isRequired
+}
 
 export default NavigationBars;
